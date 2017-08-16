@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link type="text/css" rel="stylesheet" href="/static/main.css" />
+  <title>Amateur Blog</title>
+</head>
+
+<body>
+  <a href="/blog" class="main-title">
+    My Amateur Blog
+  </a>
+
+  <div class="login-area">
+    {% if user %}
+      Good to have you here {{user.name}}!<br>
+      (<a class="login-link" href="/blog/logout">Logout</a>) or Browse around or
+      <a class="write-link" href="/blog/newpost">
+        <img class="write" src="https://cdn2.iconfinder.com/data/icons/blackblue/48/128.png" alt="Pen and Ink">Create a post!</a>
+    {% else %}
+      Hello, Stranger!<br>
+      <a class="login-link" href="/blog/login">Login</a>
+      |
+      <a class="login-link" href="/blog/signup">Sign up</a>
+    {% endif %}
+  </div>
+  <br>
+
+  <div id="content">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+  <div id="comments">
+    {% block feedback %}
+    {% endblock %}
+  </div>
+  <br><br><br><br><br>
+  <div id="footer">
+    {% block footer %}
+      Icons taken from <a href="https://www.iconfinder.com">Icon Finder</a>
+    {% endblock %}
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if user.name %}
+    {% if user.name|upper == post.author %}
+      <div class="edit-post">
+        <a class="edit-link" href="/blog/edit/{{post.postPermalink}}">
+          <img class="edit" src="https://cdn3.iconfinder.com/data/icons/blackblue/128/TextEdit.png" alt="Pen and Paper">Edit your post</a>
+        <br><br>
+      </div>
+    {% else %}
+      <br>
+    {% endif %}
+  {% else %}
+    Login and click blog titles to read, edit, like, and comment on blog posts. <br>
+  {% endif %}
+  {{post.render(user, comments, like_count, error) | safe}}
+{% endblock %}
+
+{% block feedback %}
+
+{% endblock %}

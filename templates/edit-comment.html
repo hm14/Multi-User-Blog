@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Edit your comment</h2>
+
+    <form method="post">
+      <label>
+        <div>Your comment</div>
+          <textarea class="textarea-comment" name="comment">{{comment}}</textarea>
+      </label>
+      <br>
+
+      <label>
+        <input type="checkbox" name="cancel" value=true> Cancel changes.
+        <br><br>
+        <input type="checkbox" name="deletion1" value=true> Delete my post.
+        <input type="checkbox" name="deletion2" value=true> Yes, do delete my post.
+      </label>
+      <br>
+      <div class="error">{{error}}</div>
+
+      <input type="submit">
+    </form>
+{% endblock %}

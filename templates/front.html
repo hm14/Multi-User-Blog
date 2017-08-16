@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p class="instructions">
+  {% if user %}
+  <p class="instructions-user">
+    Click titles to read, edit, like, and comment on blog posts.<br>
+  </p>
+  {% else %}
+  <p class="instructions-nouser">
+    Login to click blog titles to read, edit, like, and comment on blog posts. <br>
+  </p>
+  {% endif %}
+</p>
+  <br>
+  {% for p in posts %}
+    {{ p.render_p() | safe }}
+    <br>
+  {% endfor %}
+
+{% endblock %}
